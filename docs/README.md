@@ -14,6 +14,7 @@ on Vercel. The UI is in **Brazilian Portuguese**.
 | [scoring-and-gameplay.md](./scoring-and-gameplay.md) | Points, bonuses, caps, the three currencies, goals, prizes, and the shop. |
 | [database.md](./database.md) | Schema, scoring views, RLS, the `setup.sql` / `reset.sql` workflow. |
 | [operations.md](./operations.md) | Env vars, email (magic links + nudges), the reset runbook, troubleshooting, deploy. |
+| [development-history.md](./development-history.md) | How the project evolved, the decisions behind it, and open threads — for future agents. |
 
 ## The 30-second mental model
 
