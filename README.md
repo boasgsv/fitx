@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FitX 🏋️🤝
 
-## Getting Started
+A year-long, two-player fitness competition. Every activity you log mints
+competition **points** (your head-to-head rivalry) and **coins** (a separate
+wallet for the shop) — and feeds a shared **Team Bank** toward prizes you both
+unlock. Built with Next.js 16 + Supabase + Tailwind, deployable free on Vercel.
+The UI is in **Brazilian Portuguese**.
 
-First, run the development server:
+## Quick start
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev          # runs without a DB (shows a "connect Supabase" screen)
+npm run test:scoring # verify the scoring engine offline (no DB needed)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To wire up login + scoring, follow **[docs/getting-started.md](./docs/getting-started.md)**.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Documentation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Full docs live in **[`docs/`](./docs/README.md)**:
 
-## Learn More
+- [Getting started](./docs/getting-started.md) — run locally, connect Supabase, log in
+- [Architecture](./docs/architecture.md) — stack, folder layout, request/auth flow
+- [Scoring & gameplay](./docs/scoring-and-gameplay.md) — points, bonuses, goals, prizes, shop
+- [Database](./docs/database.md) — schema, scoring views, RLS, the setup/reset workflow
+- [Operations](./docs/operations.md) — env, email, reset runbook, troubleshooting, deploy
 
-To learn more about Next.js, take a look at the following resources:
+## How it works in one breath
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Time nests **week → season → championship**. Scoring is **compute-on-read** —
+pure SQL views over an append-only `activities` table — so you rebalance by
+editing rows, never a redeploy. The database is driven by two pasteable scripts:
+`supabase/setup.sql` (build) and `supabase/reset.sql` (wipe).
