@@ -545,7 +545,7 @@ on conflict (id) do nothing;
 -- └──────────────────────────────────────────────────────────────────────┘
 insert into users (id, email, display_name, color) values
   ('aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa', 'boasgsv@gmail.com',     'Gabriele', 'primary'),
-  ('bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb', 'PARTNER_EMAIL_HERE@example.com', 'Letícia',  'accent')
+  ('bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb', 'leticiaprado330@gmail.com', 'Letícia',  'accent')
 on conflict (id) do nothing;
 
 -- Scoring rules for every active/upcoming season (the configurable engine).

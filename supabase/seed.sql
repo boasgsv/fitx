@@ -40,8 +40,8 @@ on conflict (id) do nothing;
 -- The two players. EDIT both emails to the real ones (must match each person's
 -- login email). setup.sql is the file you actually run; keep names in sync here.
 insert into users (id, email, display_name, color) values
-  ('aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa', 'PLAYER_1_EMAIL@example.com', 'Gabriele', 'primary'),
-  ('bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb', 'PLAYER_2_EMAIL@example.com', 'Letícia',  'accent')
+  ('aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa', 'boasgsv@gmail.com',         'Gabriele', 'primary'),
+  ('bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb', 'leticiaprado330@gmail.com', 'Letícia',  'accent')
 on conflict (id) do nothing;
 
 -- Scoring rules for every active/upcoming season (the configurable engine).
